@@ -8,12 +8,12 @@
 	</head>
 	<body>
 		<?php
-  			if(isset($_GET["ProjetName"]) && isset($_GET["Time"])) {
+  			//if(isset($_GET["ProjetName"]) && isset($_GET["Time"])) {
 	      	$ProjectName = $_GET["ProjetName"];
 					$Time = $_GET["Time"];
-        } else {
-					header('Location: ./');
-  			}
+        //} else {
+				//	header('Location: ./');
+  			//}
 
 		 ?>
 
