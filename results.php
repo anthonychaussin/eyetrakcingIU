@@ -23,7 +23,7 @@
   <div class="">
     <div class="position-fixed w-25 target p-3" style="top:0px; right: 0px;">
       <div class="card h-100">
-        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+        <a href="#"><img class="card-img-top" <?php echo "src='res/".strtolower($ProjectName).".jpg'"; ?> alt=""></a>
         <div class="card-body">
           <h4 class="card-title">
             <a href="#"><?php echo $ProjectName; ?></a>
