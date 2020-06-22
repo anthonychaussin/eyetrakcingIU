@@ -8,12 +8,12 @@
 	</head>
 	<body>
 		<?php
-  			//if(isset($_GET["ProjetName"]) && isset($_GET["Time"])) {
+  			if(isset($_GET["ProjetName"]) && isset($_GET["Time"])) {
 	      	$ProjectName = $_GET["ProjetName"];
 					$Time = $_GET["Time"];
-        //} else {
-				//	header('Location: ./');
-  			//}
+        } else {
+					header('Location: ./');
+  			}
 
 		 ?>
 
@@ -28,7 +28,7 @@
           <h4 class="card-title">
             <a href="#"><?php echo $ProjectName; ?></a>
           </h4>
-          <p class=""> Vous avez regardez ce projet durant <?php echo $Time; ?></p>
+          <p class=""> Vous avez regardez ce projet durant <?php echo $Time; ?> ms</p>
         </div>
       </div>
     </div>
