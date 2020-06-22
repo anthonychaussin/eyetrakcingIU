@@ -30,21 +30,27 @@ var myInterval = null;
 $(document).ready(function(){
   $(".target").hover(function (e) {
     myInterval = setInterval(function () {
-      $(e.target).find("span.font-weight-bold.number").first().text((parseInt($(e.target).find("span.font-weight-bold.number").first().text()) + 1));
+      var data = $(e.target).data('type')
+      var target = $("span.number." + data)
+      target.text((parseInt(target.text()) + 1));
     }, 1);
   }, function (e) {
     clearInterval(myInterval);
   });
+
   setInterval(function () {
     var max = 0;
     var project = "";
-    $("span.font-weight-bold.number").forEach(function (e) {
-      if (e.text() > max) {
-        max = e.text()
-        project = e.data("project")
+    $.each($("span.number"), function (key, value) {
+      console.info(value)
+      console.log(parseInt(value.textContent))
+      console.log(value.dataset.project)
+      if (parseInt(value.textContent) > max) {
+        max = parseInt(value.textContent)
+        project = value.dataset.project
       }
     })
-    document.location.href = "./results.html?ProjetName=" + project + "&Time=" + max;
+    document.location.href = "./results.php?ProjetName=" + project + "&Time=" + max;
   }, 10000)
 });
 
@@ -61,7 +67,7 @@ $(document).ready(function(){
           <h4 class="card-title">
             <a href="#">Research</a>
           </h4>
-            <p class="counter">counter : <span class="font-weight-bold number res">0</span> ms</p>
+          <p class="counter">counter : <span class="font-weight-bold number res" data-project="Research">0</span> ms</p>
         </div>
       </div>
     </div>
@@ -75,7 +81,8 @@ $(document).ready(function(){
           <h4 class="card-title">
             <a href="#">Technology</a>
           </h4>
-            <p class="counter">counter : <span class="font-weight-bold number tec">0</span> ms</p>
+          <p class="counter">counter : <span class="font-weight-bold number tec" data-project="Technology">0</span> ms
+          </p>
         </div>
         </div>
       </div>
@@ -90,7 +97,8 @@ $(document).ready(function(){
           <h4 class="card-title">
             <a href="#">Astronomy</a>
           </h4>
-            <p class="counter">counter : <span class="font-weight-bold number ori">0</span> ms</p>
+          <p class="counter">counter : <span class="font-weight-bold number ori" data-project="Astronomy">0</span> ms
+          </p>
         </div>
         </div>
       </div>
@@ -105,7 +113,7 @@ $(document).ready(function(){
           <h4 class="card-title">
             <a href="#">Health</a>
           </h4>
-            <p class="counter">counter : <span class="font-weight-bold number blo">0</span> ms</p>
+          <p class="counter">counter : <span class="font-weight-bold number blo" data-project="Health">0</span> ms</p>
         </div>
         </div>
       </div>
